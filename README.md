@@ -19,6 +19,16 @@ Este projeto foi construído a partir do treinamento [Go: desenvolva uma API RES
 - [GORM](https://gorm.io/)
 - [Docker](https://www.docker.com/) (opcional)
 
+## Instalação de dependências
+
+Antes de rodar o projeto, instale as dependências:
+
+```sh
+go mod tidy
+go get gopkg.in/validator.v2
+go get -t github.com/andersongni/gin-api-rest
+```
+
 ## Como rodar
 
 1. Clone o repositório:
@@ -27,11 +37,7 @@ Este projeto foi construído a partir do treinamento [Go: desenvolva uma API RES
    cd gin-api-rest
    ```
 2. Configure o banco de dados no arquivo `.env` ou diretamente no código.
-3. Instale as dependências:
-   ```sh
-   go mod tidy
-   ```
-4. Rode a aplicação:
+3. Rode a aplicação:
    ```sh
    go run main.go
    ```
