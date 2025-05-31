@@ -18,6 +18,7 @@ Este projeto foi construído a partir do treinamento [Go: desenvolva uma API RES
 - [Gin](https://gin-gonic.com/)
 - [GORM](https://gorm.io/)
 - [Docker](https://www.docker.com/) (opcional)
+- [Swagger (gin-swagger)](https://github.com/swaggo/gin-swagger) (documentação automática da API)
 
 ## Instalação de dependências
 
@@ -27,7 +28,25 @@ Antes de rodar o projeto, instale as dependências:
 go mod tidy
 go get gopkg.in/validator.v2
 go get -t github.com/andersongni/gin-api-rest
+go get -u github.com/swaggo/swag/cmd/swag
+go install github.com/swaggo/swag/cmd/swag@latest
+go get github.com/swaggo/swag/example/celler/httputil
+swag init --parseDependency --parseInternal --parseDepth 1 #Gera as documentacoes (pasta docs)
+go get -u github.com/swaggo/gin-swagger
+go get -u github.com/swaggo/files
 ```
+
+## Documentação automática com Swagger
+
+O projeto utiliza o **gin-swagger** para gerar e exibir automaticamente a documentação da API REST. O Swagger permite que você visualize, teste e entenda todos os endpoints da sua API de forma interativa, facilitando o desenvolvimento e a integração com outros sistemas.
+
+Para gerar a documentação, utilize o comando:
+
+```sh
+swag init
+```
+
+Depois, acesse a rota `/swagger/index.html` no seu servidor para visualizar a documentação interativa.
 
 ## Como rodar
 
@@ -37,10 +56,12 @@ go get -t github.com/andersongni/gin-api-rest
    cd gin-api-rest
    ```
 2. Configure o banco de dados no arquivo `.env` ou diretamente no código.
-3. Rode a aplicação:
+3. Rode a aplicação (recomendado para evitar alertas do Windows):
    ```sh
-   go run main.go
+   go build -o main.exe; .\main.exe
    ```
+   > **Nota:** Usar `go build` seguido de `main.exe` evita que o Windows mostre alertas de segurança ao rodar o binário.
+
    Ou, se preferir, use Docker Compose:
    ```sh
    docker-compose up

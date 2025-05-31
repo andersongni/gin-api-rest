@@ -1,2 +1,53 @@
-postgres-data
+# Ignora dados do Postgres
+postgres-data/
+
+# Ignora binários
 *.exe
+*.out
+*.test
+
+# Ignora arquivos de build Go
+bin/
+
+# Ignora arquivos de dependências
+vendor/
+
+# Ignora arquivos de documentação gerados
+/docs/
+
+# Ignora arquivos temporários do sistema
+.DS_Store
+Thumbs.db
+
+# Ignora arquivos de configuração do editor
+.vscode/
+.idea/
+
+# Ignora arquivos de log
+*.log
+
+# Ignora arquivos de cache
+*.cache
+
+# Ignora arquivos de ambiente
+.env
+.env.*
+
+# Ignora arquivos de cobertura de testes
+coverage.out
+
+# Ignora arquivos de backup
+*~
+*.swp
+
+# Ignora arquivos do Go Modules
+/go.sum
+
+# Ignora arquivos do Swag
+swag.*
+
+# Ignora arquivos de testes
+*.test
+
+# Ignora arquivos de lock do Docker
+Dockerfile.lock
